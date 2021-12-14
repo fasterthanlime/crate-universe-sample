@@ -12,5 +12,6 @@ path = "src/main.rs"
 [dependencies]
 hyper = { version = "0.14.16", features = ["full"] }
 tokio = { version = "1.14.0", features = ["full"] }
+utils = { path = "../utils" }
 
 [features]

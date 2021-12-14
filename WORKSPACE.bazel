@@ -27,6 +27,7 @@ crate_universe(
     name = "crates",
     cargo_toml_files = [
         "//hello-world:Cargo.toml",
+        "//utils:Cargo.toml",
     ],
     resolver_download_url_template = DEFAULT_URL_TEMPLATE,
     resolver_sha256s = DEFAULT_SHA256_CHECKSUMS,

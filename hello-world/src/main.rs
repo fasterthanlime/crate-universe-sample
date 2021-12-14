@@ -9,6 +9,8 @@ async fn hello_world(_req: Request<Body>) -> Result<Response<Body>, Infallible> 
 
 #[tokio::main]
 async fn main() {
+    println!("stuff = {}", utils::get_stuff());
+
     // We'll bind to 127.0.0.1:3000
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
 
