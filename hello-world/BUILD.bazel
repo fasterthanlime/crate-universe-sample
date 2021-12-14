@@ -1,0 +1,11 @@
+load("@crates//:defs.bzl", "crates_from")
+
+load("@rules_rust//rust:defs.bzl", "rust_binary")
+
+rust_binary(
+    name = "hello-world",
+    srcs = [
+			"src/main.rs"
+		],
+    deps = crates_from("//hello-world:Cargo.toml"),
+)
