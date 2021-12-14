@@ -10,4 +10,6 @@ name = "hello_world"
 path = "src/main.rs"
 
 [dependencies]
-rcgen = "0.8.14"
+tokio = { version = "1.14.0", features = ["full"] }
+
+[features]

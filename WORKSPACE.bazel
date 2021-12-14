@@ -53,7 +53,8 @@ load("@rules_rust//rust:repositories.bzl", "rust_repositories")
 RUST_VERSION = "1.57.0"
 
 rust_repositories(
-    version = RUST_VERSION
+    edition = "2021",
+    version = RUST_VERSION,
 )
 
 load("@crates//:defs.bzl", "pinned_rust_install")
