@@ -1,4 +1,4 @@
-load("@crates//:defs.bzl", "crates_from")
+load("@crates//:defs.bzl", "crates_from", "proc_macro_crates_from")
 
 load("@rules_rust//rust:defs.bzl", "rust_library")
 
@@ -6,5 +6,6 @@ rust_library(
     name = "utils",
     srcs = glob(["src/**/*.rs"]),
     deps = crates_from("//utils:Cargo.toml"),
+    proc_macro_deps = proc_macro_crates_from("//utils:Cargo.toml"),
 		visibility = ["//visibility:public"],
 )
