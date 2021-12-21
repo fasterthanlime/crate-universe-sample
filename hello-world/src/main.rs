@@ -1,7 +1,19 @@
-use hyper::service::{make_service_fn, service_fn};
-use hyper::{Body, Request, Response, Server};
-use std::convert::Infallible;
-use std::net::SocketAddr;
+use async_trait::async_trait;
+use hyper::{
+    service::{make_service_fn, service_fn},
+    Body, Request, Response, Server,
+};
+use std::{convert::Infallible, error::Error, net::SocketAddr};
+use utils::SomeAsyncTrait;
+
+struct SomeAsyncStruct;
+
+#[async_trait]
+impl SomeAsyncTrait for SomeAsyncStruct {
+    async fn do_async_stuff(&self) -> Result<String, Box<dyn Error>> {
+        Ok("stuff!".into())
+    }
+}
 
 async fn hello_world(_req: Request<Body>) -> Result<Response<Body>, Infallible> {
     Ok(Response::new("Hello, World".into()))
@@ -10,6 +22,9 @@ async fn hello_world(_req: Request<Body>) -> Result<Response<Body>, Infallible> 
 #[tokio::main]
 async fn main() {
     println!("stuff = {}", utils::get_stuff());
+    let async_struct = SomeAsyncStruct;
+    let res = async_struct.do_async_stuff().await.unwrap();
+    println!("res = {}", res);
 
     // We'll bind to 127.0.0.1:3000
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));

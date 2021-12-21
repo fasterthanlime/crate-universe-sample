@@ -1,4 +1,4 @@
-load("@crates//:defs.bzl", "crates_from")
+load("@crates//:defs.bzl", "crates_from", "proc_macro_crates_from")
 load("@rules_rust//rust:defs.bzl", "rust_binary")
 
 rust_binary(
@@ -7,4 +7,5 @@ rust_binary(
 			"src/main.rs"
 		],
     deps = crates_from("//hello-world:Cargo.toml") + ["//utils"],
+    proc_macro_deps = proc_macro_crates_from("//hello-world:Cargo.toml"),
 )

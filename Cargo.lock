@@ -3,6 +3,17 @@
 version = 3
 
 [[package]]
+name = "async-trait"
+version = "0.1.52"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "061a7acccaa286c011ddc30970520b98fa40e00c9d644633fb26b5fc63a265e3"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "autocfg"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -101,6 +112,7 @@ checksum = "ab5ef0d4909ef3724cc8cce6ccc8572c5c817592e9285f5464f8e86f8bd3726e"
 name = "hello-world"
 version = "0.1.0"
 dependencies = [
+ "async-trait",
  "hyper",
  "tokio",
  "utils",
@@ -479,6 +491,9 @@ checksum = "8ccb82d61f80a663efe1f787a51b16b5a51e3314d6ac365b08639f52387b33f3"
 [[package]]
 name = "utils"
 version = "0.1.0"
+dependencies = [
+ "async-trait",
+]
 
 [[package]]
 name = "want"
